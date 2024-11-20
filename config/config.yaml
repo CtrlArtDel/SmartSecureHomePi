@@ -1,0 +1,78 @@
+# Define all adjustable parameters:
+
+# Motion detection configuration
+motion_detection:
+  sensitivity: 0.5         # Sensitivity of motion detection (0.0 to 1.0)
+  min_area: 500            # Minimum area (in pixels) to consider motion
+
+# Face recognition configuration
+face_recognition:
+  known_faces_dir: "data/faces/known"  # Directory for storing known faces
+  tolerance: 0.6           # Matching tolerance (lower is stricter)
+
+# Video recording configuration
+video:
+  output_dir: "data/videos" # Directory for storing recorded videos
+  duration: 10             # Duration of video recordings (seconds)
+
+# Notification configuration
+notifications:
+  email:
+    enabled: true
+    smtp_server: "smtp.example.com"
+    smtp_port: 587
+    username: !secret email_username
+    password: !secret email_password
+    recipient: "recipient@example.com"
+  push_notifications:
+    enabled: true
+    service: "firebase"
+    api_key: !secret firebase_api_key
+
+# Telegram bot configuration
+telegram:
+  api_token: !secret telegram_api_token
+  chat_id: "your-telegram-chat-id"
+
+# Cloud storage configuration
+cloud:
+  aws:
+    enabled: true
+    access_key: !secret aws_access_key
+    secret_key: !secret aws_secret_key
+    bucket_name: "your_s3_bucket"
+  google:
+    enabled: true
+    credentials: "path/to/google_credentials.json" # Path to credentials JSON
+    folder_id: !secret google_drive_folder_id
+  nextcloud:
+    enabled: true
+    nextcloud_url: "https://nextcloud.example.com"
+    nextcloud_user: !secret nextcloud_username
+    nextcloud_password: !secret nextcloud_password
+
+# Fall detection AI model configuration
+fall_detection:
+  model_path: "models/fall_detection_model.tflite"
+
+# Two-way audio configuration
+audio:
+  enabled: true
+  host: "192.168.1.100"
+  port: 5000
+
+# Privacy and encryption configuration
+privacy:
+  encryption_key: !secret aes_encryption_key
+
+# Energy management configuration
+energy_management:
+  low_power_mode: true
+
+# Sensor configuration
+sensors:
+  door: 17                 # GPIO pin for door sensor
+  smoke: 27                # GPIO pin for smoke sensor
+  temperature: 22          # GPIO pin for temperature sensor
+  humidity: 23             # GPIO pin for humidity sensor
+
